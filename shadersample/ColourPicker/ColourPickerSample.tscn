@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxsrsrixkwfvq"]
+
+[ext_resource type="Shader" path="res://ColourPicker/ColorPickerV1.gdshader" id="1_5wssx"]
+[ext_resource type="Texture2D" uid="uid://1aqph18c6ot7" path="res://Assets/SampleSprite.png" id="2_2chh6"]
+[ext_resource type="Shader" path="res://ColourPicker/ColorPickerV2.gdshader" id="3_16ca2"]
+[ext_resource type="Script" path="res://ColourPicker/ColourableSprite.cs" id="4_l8yfg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vh8rm"]
+shader = ExtResource("1_5wssx")
+shader_parameter/color = Color(0.419608, 0.47451, 0.0156863, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_getis"]
+shader = ExtResource("3_16ca2")
+shader_parameter/color = Color(0.419608, 0.47451, 0.0156863, 1)
+shader_parameter/shades = PackedColorArray(0.333333, 0.333333, 0.333333, 1, 0.356863, 0.356863, 0.356863, 1, 0.435294, 0.435294, 0.435294, 1, 0.552941, 0.552941, 0.552941, 1, 0.635294, 0.635294, 0.635294, 1, 0.690196, 0.690196, 0.690196, 1)
+shader_parameter/tolerance = 0.001
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vttk"]
+shader = ExtResource("3_16ca2")
+shader_parameter/color = null
+shader_parameter/shades = null
+shader_parameter/tolerance = 0.001
+
+[node name="Scene root" type="Node2D"]
+
+[node name="ColourPickerV1" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vh8rm")
+position = Vector2(227, 350)
+scale = Vector2(10, 10)
+texture = ExtResource("2_2chh6")
+
+[node name="ColourPickerV2" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_getis")
+position = Vector2(600, 350)
+scale = Vector2(10, 10)
+texture = ExtResource("2_2chh6")
+
+[node name="C#WrappedColourableSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5vttk")
+position = Vector2(974, 350)
+scale = Vector2(10, 10)
+texture = ExtResource("2_2chh6")
+script = ExtResource("4_l8yfg")
+Colour = Color(0.780392, 0.32549, 0.627451, 1)
+targetColours = PackedColorArray(0.333333, 0.333333, 0.333333, 1, 0.356863, 0.356863, 0.356863, 1, 0.435294, 0.435294, 0.435294, 1, 0.552941, 0.552941, 0.552941, 1, 0.635294, 0.635294, 0.635294, 1, 0.690196, 0.690196, 0.690196, 1)
